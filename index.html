@@ -1085,8 +1085,8 @@
         .acceso-expedientes:hover,.acceso-expedientes:focus-visible { opacity: 1; color: inherit; }
         body.claro .acceso-expedientes { border-color: #888; color: #555; }
     
-        /* Portada ilustrada de Duelo de calculo: solo esta tarjeta */
-        .tarjeta.tarjeta-duelo {
+        /* Portadas de videojuegos: Duelo y Disparador de Primos */
+        .tarjeta.tarjeta-ilustrada {
             position: relative;
             overflow: hidden;
             padding: 0 0 20px;
@@ -1095,12 +1095,12 @@
             box-shadow: 0 8px 26px rgba(0, 0, 0, .18);
         }
 
-        .tarjeta.tarjeta-duelo:hover {
+        .tarjeta.tarjeta-ilustrada:hover {
             border-color: #ffb547;
             box-shadow: 0 12px 30px rgba(0, 0, 0, .25);
         }
 
-        .tarjeta-duelo .duelo-portada {
+        .tarjeta-ilustrada .juego-portada {
             width: 100%;
             aspect-ratio: 16 / 9;
             overflow: hidden;
@@ -1108,7 +1108,7 @@
             background: #112445;
         }
 
-        .tarjeta-duelo .duelo-portada img {
+        .tarjeta-ilustrada .juego-portada img {
             display: block;
             width: 100%;
             height: 100%;
@@ -1116,11 +1116,11 @@
             transition: transform .25s ease;
         }
 
-        .tarjeta-duelo:hover .duelo-portada img {
+        .tarjeta-ilustrada:hover .juego-portada img {
             transform: scale(1.025);
         }
 
-        .tarjeta-duelo .tipo-tarjeta {
+        .tarjeta-ilustrada .tipo-tarjeta {
             position: absolute;
             top: 12px;
             left: 12px;
@@ -1131,20 +1131,20 @@
             border: 1px solid rgba(255, 255, 255, .28);
         }
 
-        .tarjeta-duelo h2 {
+        .tarjeta-ilustrada h2 {
             margin: 0 18px 9px;
             font-size: 23px;
             color: #fff;
         }
 
-        .tarjeta-duelo p {
+        .tarjeta-ilustrada p {
             min-height: 0;
             margin: 0 18px;
             font-size: 14px;
             color: #ccdaee;
         }
 
-        .tarjeta-duelo .estadistica-tarjeta {
+        .tarjeta-ilustrada .estadistica-tarjeta {
             margin: 12px 18px 0;
             padding: 9px 12px;
             min-height: 0;
@@ -1154,7 +1154,7 @@
             color: #ffe0ad;
         }
 
-        .tarjeta.tarjeta-duelo #botonDuelo {
+        .tarjeta.tarjeta-ilustrada > a {
             display: block;
             margin: 15px 18px 0;
             padding: 12px 18px;
@@ -1164,37 +1164,37 @@
             box-shadow: 0 4px 14px rgba(255, 133, 22, .2);
         }
 
-        .tarjeta.tarjeta-duelo #botonDuelo:hover {
+        .tarjeta.tarjeta-ilustrada > a:hover {
             background: linear-gradient(135deg, #ffcf6f, #ff9b30);
         }
 
-        body.claro .tarjeta.tarjeta-duelo {
+        body.claro .tarjeta.tarjeta-ilustrada {
             background: #fff;
             border-color: #cad8ea;
         }
 
-        body.claro .tarjeta-duelo h2 {
+        body.claro .tarjeta-ilustrada h2 {
             color: #1b2b47;
         }
 
-        body.claro .tarjeta-duelo p {
+        body.claro .tarjeta-ilustrada p {
             color: #4e5970;
         }
 
-        body.claro .tarjeta-duelo .estadistica-tarjeta {
+        body.claro .tarjeta-ilustrada .estadistica-tarjeta {
             color: #6e4710;
             background: #fff5e6;
             border-color: #f1cf96;
         }
 
-        body.claro .tarjeta.tarjeta-duelo #botonDuelo {
+        body.claro .tarjeta.tarjeta-ilustrada > a {
             background: linear-gradient(135deg, #ffc34d, #ff8a17);
             color: #201a13;
         }
 
         @media (prefers-reduced-motion: reduce) {
-            .tarjeta-duelo .duelo-portada img { transition: none; }
-            .tarjeta-duelo:hover .duelo-portada img { transform: none; }
+            .tarjeta-ilustrada .juego-portada img { transition: none; }
+            .tarjeta-ilustrada:hover .juego-portada img { transform: none; }
         }
 
     </style>
@@ -1513,8 +1513,8 @@
 
             <div class="juegos">
 
-                <div class="tarjeta tarjeta-duelo" data-categoria="juegos">
-                    <div class="duelo-portada">
+                <div class="tarjeta tarjeta-ilustrada" data-categoria="juegos">
+                    <div class="juego-portada">
                         <img src="assets/duelo-calculo.avif" width="400" height="225" loading="lazy" decoding="async" alt="Dos rivales animados compiten en un concurso de cálculo mental">
                     </div>
                     <h2 id="tituloDuelo">⚡ Duelo de cálculo mental</h2>
@@ -1529,8 +1529,10 @@
                     <a href="juegos/dardos-matematicos/index.html" id="botonDardos">🎯 Jugar</a>
                 </div>
 
-                <div class="tarjeta" data-categoria="juegos">
-                    <img class="imagen-juego" src="assets/disparador-primos.webp" alt="Jugador en una feria apuntando con una pistola a cinco dianas numeradas; acierta al número primo 17." loading="lazy" decoding="async">
+                <div class="tarjeta tarjeta-ilustrada" data-categoria="juegos">
+                    <div class="juego-portada">
+                        <img src="assets/disparador-primos.webp" width="400" height="225" alt="Jugador en una feria apuntando con una pistola a cinco dianas numeradas; acierta al número primo 17." loading="lazy" decoding="async">
+                    </div>
                     <h2 id="tituloPrimos">🎯 Disparador de primos</h2>
                     <p id="descripcionPrimos">Dispara solo a los números primos antes de que lleguen abajo.</p>
                     <a href="juegos/disparador-primos/index.html" id="botonPrimos">🎯 Jugar</a>
