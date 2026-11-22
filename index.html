@@ -316,6 +316,17 @@
             font-size: 22px;
         }
 
+        .tarjeta .imagen-juego {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            background: #16213e;
+        }
+
         .tarjeta p {
             color: #aaa;
             min-height: 45px;
@@ -1519,6 +1530,7 @@
                 </div>
 
                 <div class="tarjeta" data-categoria="juegos">
+                    <img class="imagen-juego" src="assets/disparador-primos.webp" alt="Jugador en una feria apuntando con una pistola a cinco dianas numeradas; acierta al número primo 17." loading="lazy" decoding="async">
                     <h2 id="tituloPrimos">🎯 Disparador de primos</h2>
                     <p id="descripcionPrimos">Dispara solo a los números primos antes de que lleguen abajo.</p>
                     <a href="juegos/disparador-primos/index.html" id="botonPrimos">🎯 Jugar</a>
