@@ -1074,6 +1074,7 @@
         .acceso-expedientes:hover,.acceso-expedientes:focus-visible { opacity: 1; color: inherit; }
         body.claro .acceso-expedientes { border-color: #888; color: #555; }
     </style>
+<link rel="stylesheet" href="retos/style.css?v=20261122-1">
 </head>
 
 <body>
@@ -1110,7 +1111,8 @@
                 🏆 Ranking
             </a>
 
-            <a href="#logros" id="logrosNav" data-view="logros">🎖️ Logros</a>
+            <a href="#retos" id="retosNav" data-view="retos">🎯 Retos diarios</a>
+<a href="#logros" id="logrosNav" data-view="logros">🎖️ Logros</a>
 
             <a href="#registro" id="registroNav" data-view="registro">
                 👤 Registrarse
@@ -1195,7 +1197,8 @@
                 <div class="resumen-dato"><strong id="totalInteresantes">2</strong><span id="textoTotalInteresantes">Experimentos</span></div>
             </div>
 
-            <a class="medallas-teaser" href="#logros" id="medallasTeaser">
+            <a class="retos-teaser" href="#retos"><span>🎯</span><span><strong id="retosTeaserTitulo">🎯 Retos diarios</strong><small id="retosTeaserResumen">10 retos cada día · hasta 165 XP extra</small></span><span aria-hidden="true">➜</span></a>
+<a class="medallas-teaser" href="#logros" id="medallasTeaser">
                 <span class="medallas-teaser-icon">🏅</span>
                 <span><strong id="medallasTeaserTitulo">Logros y medallas</strong><small id="medallasTeaserResumen">Consulta tus logros y desafíos</small></span>
                 <span aria-hidden="true">➜</span>
@@ -1342,7 +1345,13 @@
 
 
 
-        <section class="logros-seccion" id="logrosSeccion" aria-labelledby="logros-title" style="display:none">
+        <section class="retos-seccion" id="retosSeccion" aria-labelledby="retosTitulo" style="display:none">
+<div class="retos-cabecera"><h1 id="retosTitulo">🎯 Retos diarios</h1><p id="retosDescripcion">Completa 10 retos cada día y gana XP adicional.</p><span id="retosFecha"></span></div>
+<div class="retos-resumen"><div class="retos-resumen-card"><strong id="retosCompletados">0 / 10</strong><span id="retosCompletadosLabel">Completados</span></div><div class="retos-resumen-card"><strong id="retosReclamados">0 / 10</strong><span id="retosReclamadosLabel">Reclamados</span></div><div class="retos-resumen-card"><strong id="retosDisponibles">165 XP</strong><span id="retosDisponiblesLabel">XP posibles</span></div></div>
+<div class="retos-herramientas"><button id="retosActualizar" type="button">↻ Actualizar retos</button></div>
+<p id="retosEstado" class="retos-estado" role="status" aria-live="polite"></p><div id="retosLista" class="retos-lista" aria-live="polite"></div><p id="retosNota" class="retos-nota"></p>
+</section>
+<section class="logros-seccion" id="logrosSeccion" aria-labelledby="logros-title" style="display:none">
             <div class="logros-cabecera"><h1 id="logros-title">🏅 Logros y medallas</h1><p id="logros-subtitle">Completa desafíos y colecciona medallas permanentes.</p></div>
             <div class="logros-resumen">
                 <div class="logros-dato"><strong id="logros-total">19</strong><span id="logros-totalLabel">Medallas</span></div>
@@ -1713,6 +1722,7 @@
                     interesantes: "✨ Cosas interesantes",
                     calculadora: "🧮 Calculadora",
                     ranking: "🏆 Ranking",
+                    retos: "🎯 Retos diarios",
                     registro: "👤 Registrarse",
                     todo: "🎮 Todo",
                     registroTitulo: "👤 Registrarse",
@@ -1728,6 +1738,7 @@
                     interesantes: "✨ Interesting things",
                     calculadora: "🧮 Calculators",
                     ranking: "🏆 Ranking",
+                    retos: "🎯 Daily challenges",
                     registro: "👤 Register",
                     todo: "🎮 Everything",
                     registroTitulo: "👤 Register",
@@ -1743,6 +1754,7 @@
                     interesantes: "✨ Հետաքրքիր բաներ",
                     calculadora: "🧮 Հաշվիչներ",
                     ranking: "🏆 Վարկանիշ",
+                    retos: "🎯 Ամենօրյա առաջադրանքներ",
                     registro: "👤 Գրանցվել",
                     todo: "🎮 Ամեն ինչ",
                     registroTitulo: "👤 Գրանցվել",
@@ -1762,6 +1774,7 @@
             document.getElementById("interesantesNav").textContent = t.interesantes;
             document.getElementById("calculadoraNav").textContent = t.calculadora;
             document.getElementById("rankingNav").textContent = t.ranking;
+document.getElementById("retosNav").textContent = t.retos;
             document.getElementById("registroNav").textContent = t.registro;
             const correoText = {
                 es: ['Correo electrónico', 'Tu correo es privado y no aparece en los rankings.'],
@@ -1784,7 +1797,7 @@
         }
 
         function mostrarSeccion(seccion, actualizarHash = true) {
-            const validas = ["inicio", "juegos", "interesantes", "calculadora", "ranking", "logros", "registro"];
+            const validas = ["inicio", "juegos", "interesantes", "calculadora", "ranking", "retos", "logros", "registro"];
             if (!validas.includes(seccion)) seccion = "inicio";
             vistaActual = seccion;
 
@@ -1794,17 +1807,19 @@
             const registro = document.getElementById("registro");
             const ranking = document.getElementById("rankingSeccion");
             const logros = document.getElementById("logrosSeccion");
+const retos = document.getElementById("retosSeccion");
             const juegos = document.getElementById("juegos");
             const formulario = document.getElementById("formularioUsuario");
             const tituloCatalogo = document.getElementById("tituloJuegos");
 
             cabecera.style.display = seccion === "inicio" ? "" : "none";
             extras.style.display = seccion === "inicio" ? "" : "none";
-            buscador.style.display = (seccion === "registro" || seccion === "ranking" || seccion === "logros") ? "none" : "";
+            buscador.style.display = (seccion === "registro" || seccion === "ranking" || seccion === "logros" || seccion === "retos") ? "none" : "";
             registro.style.display = seccion === "registro" ? "" : "none";
             ranking.style.display = seccion === "ranking" ? "block" : "none";
             logros.style.display = seccion === "logros" ? "block" : "none";
-            juegos.style.display = (seccion === "registro" || seccion === "ranking" || seccion === "logros") ? "none" : "";
+retos.style.display = seccion === "retos" ? "block" : "none";
+            juegos.style.display = (seccion === "registro" || seccion === "ranking" || seccion === "logros" || seccion === "retos") ? "none" : "";
             tituloCatalogo.style.display = (seccion === "inicio" || seccion === "ranking" || seccion === "registro" || seccion === "logros") ? "none" : "";
 
             if (seccion === "registro") {
@@ -1818,6 +1833,7 @@
             actualizarPortadaMejorada();
             if (seccion === "ranking") cargarRankingXp();
             if (seccion === "logros") window.MiWebLogros?.show();
+if (seccion === "retos") window.MiWebRetos?.show();
 
             if (actualizarHash && location.hash !== "#" + seccion) {
                 history.pushState(null, "", "#" + seccion);
@@ -3244,6 +3260,7 @@
                 hy:['🎖️ Նվաճումներ','Նվաճումներ և մեդալներ','Տես քո նվաճումներն ու առաջադրանքները','Բացված մեդալներ՝ ']
             }[l] || ['🎖️ Logros','Logros y medallas','Consulta tus logros y desafíos','Medallas conseguidas: '];
             document.getElementById('logrosNav').textContent=titles[0];
+window.MiWebRetos?.render();
             document.getElementById('medallasTeaserTitulo').textContent=titles[1];
             document.getElementById('medallasTeaserResumen').textContent=savedAchievementRows
               ? titles[3] + savedAchievementRows.filter(x=>x.unlocked_at).length + ' / ' + savedAchievementRows.length : titles[2];
@@ -3267,6 +3284,7 @@
 
     </script>
     <script src="logros/app.js?v=tab-bw-20261018"></script>
+<script src="retos/app.js?v=20261122-1"></script>
 
 </body>
 </html>
