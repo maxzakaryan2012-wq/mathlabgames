@@ -1,0 +1,30 @@
+.retos-seccion{max-width:1080px;margin:0 auto;min-height:calc(100vh - 150px);padding:12px 0 60px}
+.retos-cabecera{text-align:center;margin:0 0 25px}.retos-cabecera h1{font-size:clamp(30px,4.5vw,45px);margin:0 0 8px}.retos-cabecera p{font-size:15px;line-height:1.5;color:#aaa}.retos-cabecera #retosFecha{font-size:13px;color:#deb35d}
+.retos-resumen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 auto 20px}
+.retos-resumen-card{border:1px solid #3a3a3a;background:#1d1d1d;border-radius:14px;text-align:center;padding:18px 10px}
+.retos-resumen-card strong{display:block;font-size:clamp(22px,3vw,32px);margin-bottom:6px}.retos-resumen-card span{color:#aaa;font-size:13px}
+.retos-herramientas{display:flex;justify-content:flex-end;margin:10px 0 15px}
+.retos-herramientas button{background:#292929;border:1px solid #555;border-radius:9px;color:#fff;cursor:pointer;padding:11px 15px;font:inherit;font-weight:700}.retos-herramientas button:disabled{opacity:.5;cursor:wait}
+.retos-estado{min-height:20px;margin:0 0 12px;color:#c7c7c7;font-size:14px}.retos-estado.error{color:#ff8d8d}
+.retos-lista{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.retos-tarjeta{background:#1c1c1c;border:1px solid #404040;border-radius:15px;padding:20px;min-width:0}
+.retos-tarjeta-top,.retos-progreso-cabecera,.retos-acciones{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.retos-rareza{font-size:11px;letter-spacing:.035em;text-transform:uppercase;border:1px solid #777;border-radius:99px;padding:5px 10px;color:#ddd;font-weight:800}
+.retos-raro{border-left:4px solid #6596c1}.retos-raro .retos-rareza{border-color:#6596c1;color:#a8c7ff}
+.retos-legendario{border-left:4px solid #d6a526}.retos-legendario .retos-rareza{border-color:#d6a526;color:#f1cd70}
+.retos-premio{color:#f4bf55;font-size:16px;white-space:nowrap}
+.retos-tarjeta-titulo{font-size:17px;margin:15px 0 17px;line-height:1.4;min-height:44px}
+.retos-progreso-cabecera{font-size:12px;color:#aaa;margin-bottom:8px}.retos-progreso-cabecera strong{color:#eee}
+.retos-barra{height:9px;background:#424242;border-radius:99px;overflow:hidden}.retos-barra-lleno{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#d4a129,#ffe082)}
+.retos-acciones{margin-top:17px}.retos-jugar,.retos-reclamar{display:inline-flex;align-items:center;justify-content:center;border-radius:10px;padding:10px 14px;min-height:42px;font:inherit;font-size:13px;font-weight:800;text-decoration:none;cursor:pointer;border:1px solid #777}
+.retos-jugar{background:#eaeaea;color:#161616}.retos-reclamar{background:#d7a436;color:#161616;border-color:#d7a436}.retos-reclamar:disabled{background:#303030;border-color:#555;color:#aaa;cursor:not-allowed}
+.retos-cobrado{border-color:#64846b}.retos-nota,.retos-vacio{color:#aaa;font-size:13px;line-height:1.5;text-align:center;margin-top:24px}
+.retos-teaser{display:flex;align-items:center;gap:14px;margin:0 0 17px;padding:17px 20px;text-decoration:none;background:#302617;color:#f9e2ab;border:1px solid #866426;border-radius:14px}
+.retos-teaser:hover{border-color:#e9b952}.retos-teaser span:nth-child(2){display:flex;flex:1;flex-direction:column;gap:5px}.retos-teaser strong{font-size:16px}.retos-teaser small{font-size:13px;color:#d9c499}
+body.claro .retos-cabecera p,body.claro .retos-resumen-card span,body.claro .retos-nota{color:#555}
+body.claro .retos-resumen-card,body.claro .retos-tarjeta{background:#fff;border-color:#ddd}
+body.claro .retos-progreso-cabecera{color:#555}body.claro .retos-progreso-cabecera strong{color:#111}
+body.claro .retos-barra{background:#eee}body.claro .retos-herramientas button{background:#fff;color:#111;border-color:#bbb}
+body.claro .retos-tarjeta.retos-raro{border-left-color:#6596c1}body.claro .retos-tarjeta.retos-legendario{border-left-color:#d6a526}
+body.claro .retos-tarjeta .retos-rareza{color:#555}body.claro .retos-teaser{background:#fff8ec;color:#3c2b0c;border-color:#d5ba82}body.claro .retos-teaser small{color:#654d2b}
+@media(max-width:680px){.retos-lista{grid-template-columns:1fr}.retos-tarjeta{padding:16px}.retos-resumen{gap:7px}.retos-resumen-card{padding:12px 4px}.retos-resumen-card span{font-size:11px}.retos-acciones{flex-wrap:wrap}}
