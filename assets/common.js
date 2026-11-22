@@ -896,6 +896,11 @@ window.MiWeb = (() => {
     }
 
     return {
+        getDailyChallenges: () => rpc('get_daily_challenges', {}),
+        claimDailyChallenge: id => rpc('claim_daily_challenge', {
+            p_challenge_id: id,
+            p_name: profile().name.slice(0,20)
+        }),
         getContact: () => rpc('get_player_contact', {}), profile, rename, readStats, writeStats, playerName, applyLanguage,
         validIntegerRange, readExtraStats, writeExtraStats, updateExtraStats,
         mountRanking, refreshRanking, refreshRankings, syncGlobalGame,
